@@ -1,0 +1,2 @@
+class Technican < ApplicationRecord
+end
