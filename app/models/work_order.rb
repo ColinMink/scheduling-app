@@ -1,4 +1,4 @@
 class WorkOrder < ApplicationRecord
-    belongs_to :location
-    belongs_to :technican
+    has_one :location
+    has_one :technican
 end
