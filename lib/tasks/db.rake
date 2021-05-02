@@ -29,7 +29,7 @@ namespace :db do | args |
                         id:line[0] , 
                         technician_id:line[1], 
                         location_id:line[2],
-                        time:line[3],
+                        time:Time.parse(line[3]),
                         duration:line[4],
                         price:line[5]
                     }
