@@ -1,0 +1,7 @@
+<div class="work-order" data-duration=<%= work_order.duration %> data-time=<%= work_order.time.to_time.to_i %>>
+    <div><%= @locations.find { |location| location.id == work_order.location_id }.name %></div>
+    <div><%= @locations.find { |location| location.id == work_order.location_id }.city %></div>
+    <div><%= @technicans.find { |technican| technican.id == work_order.technician_id }.name %></div>
+    <div><%= work_order.time.getlocal.strftime("%I:%M %p") %></div>
+    <div><%= number_to_currency(work_order.price) %></div>
+</div>

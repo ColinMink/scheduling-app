@@ -1,0 +1,29 @@
+<%= javascript_pack_tag 'home.js' %>
+
+<h1>Daily Schedule</h1>
+<div id="grid-container">
+    <div class="grid-item"></div>
+    <% @technicans.each do |technican| %>
+        <div class="grid-item">
+            <%= technican.name %>
+        </div>
+    <% end %>
+    <div class="column">
+        <% for i in 0..24 %>
+            <% time_block = Time.new(2019,1,10,i,0,0) %>
+            <div class="grid-item"><%= time_block.strftime("%I:%M %p") %></div>
+        <%end%>
+    </div>
+    <% @technicans.each do |technican|%>
+    <div class="column">
+        <% for i in 0..24 %>
+            <% time_block = Time.new(2019,1,10,i,0,0).utc %>
+                <div class="grid-item">
+                 <% work_order =  @workOrders.select { |k, v| k.technician_id == technican.id}
+                 .find{ |order| order.time.utc >= time_block.utc && order.time.utc < (time_block.utc + 60.minutes)} %>
+                 <%= render partial: "work_order", locals: { work_order: work_order} if work_order != nil %>
+                </div>
+        <%end%>
+    </div>
+    <%end%>
+</div>
