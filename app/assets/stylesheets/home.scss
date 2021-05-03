@@ -2,5 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
 
+#grid-container{
+    display: grid;
+    grid-template-columns: 100px auto auto auto auto;
+}
+.grid-item{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
 
+.work-order{
+    background-color: red;
+    height: 100%;
+    z-index: 2;
+}
+
+.column{
+    display: grid;
+    grid-template-rows: repeat(25,100px)
+}
