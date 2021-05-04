@@ -6,6 +6,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.body{
+    font-family: "Montserrat",sans-serif;
+}
+
 #grid-container{
     display: grid;
     grid-template-columns: 100px auto auto auto auto;
@@ -14,15 +18,56 @@
     border-color: black;
     border-style: solid;
     border-width: 1px;
+    min-width: 100px;
 }
 
 .work-order{
-    background-color: red;
+    background-color:#c8102e;
     height: 100%;
     z-index: 2;
+    position: relative;
+    border-radius: 10px;
+}
+
+.work-order div {
+    margin-left: 10px;
+    color: white;
+
 }
 
 .column{
     display: grid;
-    grid-template-rows: repeat(25,100px)
+    grid-template-rows: repeat(25,100px);
 }
+
+
+.modal {
+    display: none;
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .center_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+

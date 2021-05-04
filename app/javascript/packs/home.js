@@ -3,13 +3,29 @@ const row_height = 100;
 document.body.onload = function() {
     document.getElementById("grid-container").addEventListener("click",timeBetweenWorkOrders);
     setWorkOrderSizeAndPlacement();
+    var modal = document.getElementsByClassName("modal")[0];
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+      }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+         modal.style.display = "none";
+     }
+    }
 }
 
 
 function timeBetweenWorkOrders(event){
-    if(event.path.find(element => element.classList ? element.classList.contains("work-order") : false )){
-        alert("Work Order in progress");
-        console.log("Clicked a work order");
+    console.log(event.target);
+    if(event.target.classList ? event.target.classList.contains("center_text") : false) {
+        return;
+    }
+    let workOrder = event.path.find(element => element.classList ? element.classList.contains("work-order") : false );
+
+    if(workOrder){
+        console.log(workOrder);
+        openModalWithContent(workOrder.innerHTML);
     } else {
         console.log("previousWorkOrder");
         let previousWorkOrder = checkPreviousSiblingHasChild(event.target);
@@ -26,11 +42,11 @@ function timeBetweenWorkOrders(event){
             console.log(nextOrderTime);
         }
         if(previousWorkOrder === null){
-            alert("First work order of the day at: " + nextOrderTime);
+            openModalWithContent("First work order of the day at: " + nextOrderTime);
         } else if(nextWorkOrder === null){
-            alert("No further work orders");
+            openModalWithContent("No further work orders");
         } else {
-            alert(msToTime(nextOrderTime - previousOrderTime) + " until the next work order");
+            openModalWithContent(msToTime(nextOrderTime - previousOrderTime) + " until the next work order");
         }
     }
 }
@@ -79,3 +95,10 @@ function msToTime(duration) {
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     return hours + ":" + minutes;
   }
+
+function openModalWithContent(content) {
+    modalTextContent = document.getElementById("modal-text-content");
+    var modal = document.getElementsByClassName("modal")[0];
+    modalTextContent.innerHTML = content;
+    modal.style.display = "block";
+}
