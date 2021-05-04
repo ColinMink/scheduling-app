@@ -17,29 +17,23 @@ document.body.onload = function() {
 
 
 function timeBetweenWorkOrders(event){
-    console.log(event.target);
     if(event.target.classList ? event.target.classList.contains("center_text") : false) {
         return;
     }
     let workOrder = event.path.find(element => element.classList ? element.classList.contains("work-order") : false );
 
     if(workOrder){
-        console.log(workOrder);
         openModalWithContent(workOrder.innerHTML);
     } else {
-        console.log("previousWorkOrder");
         let previousWorkOrder = checkPreviousSiblingHasChild(event.target);
         let previousOrderTime = null;
         if(previousWorkOrder !== null){
             previousOrderTime = new Date(previousWorkOrder.children[0].dataset.time * 1000);
-            console.log(previousOrderTime);
         }
-        console.log("nextWorkOrder");
         let nextWorkOrder = checkNextSiblingHasChild(event.target);
         let nextOrderTime = null;
         if(nextWorkOrder !== null){
             nextOrderTime = new Date(nextWorkOrder.children[0].dataset.time * 1000);
-            console.log(nextOrderTime);
         }
         if(previousWorkOrder === null){
             openModalWithContent("First work order of the day at: " + nextOrderTime);
@@ -77,9 +71,7 @@ function setWorkOrderSizeAndPlacement() {
     for (work_order of work_orders) {
         let duration = work_order.dataset.duration;
         let minutes = new Date(work_order.dataset.time * 1000).getMinutes();
-        console.log(minutes);
         work_order.style.height =  (row_height * (duration/60)) + "px";
-        console.log(minutes);
         if(minutes !== 0){
             work_order.style.marginTop = ((minutes/60) * row_height) + "px";
         }
