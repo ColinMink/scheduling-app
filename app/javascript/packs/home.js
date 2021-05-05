@@ -5,19 +5,22 @@ document.body.onload = function() {
     setWorkOrderSizeAndPlacement();
     var modal = document.getElementsByClassName("modal")[0];
     var span = document.getElementsByClassName("close")[0];
-    span.onclick = function() {
+    span.addEventListener("click",function() {
         modal.style.display = "none";
-      }
-    window.onclick = function(event) {
+      });
+    window.addEventListener("click", function(event) {
+        console.log(event.target);
+        console.log(event.target == modal);
     if (event.target == modal) {
          modal.style.display = "none";
      }
-    }
+    });
 }
 
 
 function timeBetweenWorkOrders(event){
-    if(event.target.classList ? event.target.classList.contains("center_text") : false) {
+    console.log(event.target.id === "grid-container");
+    if((event.target.classList ? event.target.classList.contains("center_text") : false) || event.target.id === "grid-container") {
         return;
     }
     let workOrder = event.path.find(element => element.classList ? element.classList.contains("work-order") : false );
