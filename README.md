@@ -4,10 +4,10 @@
 
 Tested with the following versions
 
-yarn 1.22.10
-sqlite3 3.35.5
-ruby 2.7.3p183
-rails 6.1.3.1
+* yarn 1.22.10
+* sqlite3 3.35.5
+* ruby 2.7.3p183
+* rails 6.1.3.1
 
 # setup
 
