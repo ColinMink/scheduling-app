@@ -9,8 +9,6 @@ document.body.onload = function() {
         modal.style.display = "none";
       });
     window.addEventListener("click", function(event) {
-        console.log(event.target);
-        console.log(event.target == modal);
     if (event.target == modal) {
          modal.style.display = "none";
      }
@@ -19,7 +17,7 @@ document.body.onload = function() {
 
 
 function timeBetweenWorkOrders(event){
-    console.log(event.target.id === "grid-container");
+    console.log(event);
     if((event.target.classList ? event.target.classList.contains("center_text") : false) || event.target.id === "grid-container") {
         return;
     }
@@ -31,19 +29,20 @@ function timeBetweenWorkOrders(event){
         let previousWorkOrder = checkPreviousSiblingHasChild(event.target);
         let previousOrderTime = null;
         if(previousWorkOrder !== null){
-            previousOrderTime = new Date(previousWorkOrder.children[0].dataset.time * 1000);
+            previousOrderTime = new Date((previousWorkOrder.children[0].dataset.time * 1000 + previousWorkOrder.children[0].dataset.duration * 60000));
         }
-        let nextWorkOrder = checkNextSiblingHasChild(event.target);
+        let nextWorkOrder = checkNextSiblingHasChild(event.target.previousElementSibling);
         let nextOrderTime = null;
+        console.log(nextWorkOrder);
         if(nextWorkOrder !== null){
             nextOrderTime = new Date(nextWorkOrder.children[0].dataset.time * 1000);
         }
         if(previousWorkOrder === null){
-            openModalWithContent("First work order of the day at: " + nextOrderTime);
+            openModalWithContent("First work order of the day at: " + nextOrderTime.toLocaleTimeString());
         } else if(nextWorkOrder === null){
-            openModalWithContent("No further work orders");
+            openModalWithContent("No further work orders for today");
         } else {
-            openModalWithContent(msToTime(nextOrderTime - previousOrderTime) + " until the next work order");
+            openModalWithContent(msToTime(nextOrderTime - previousOrderTime ) + " between work orders");
         }
     }
 }
