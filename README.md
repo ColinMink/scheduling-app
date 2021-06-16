@@ -17,11 +17,11 @@ git clone https://github.com/ColinMink/scheduling-app.git
 
 - [ ] Run the database migrate to build the sqlite3 database
 
-rails db:migrate
+rake db:migrate
 
 - [ ] Import the CSV data into the database
 
-db:load_csv DIRECTORY_PATH
+rake db:load_csv DIRECTORY_PATH
 
 DIRECTORY_PATH is the location of the directory containing the csv files. They are required to be named locations.csv, technicans,csv and work_orders.csv
 
