@@ -2,6 +2,6 @@
     <div>Location: <%= @locations.find { |location| location.id == work_order.location_id }.name %></div>
     <div>City: <%= @locations.find { |location| location.id == work_order.location_id }.city %></div>
     <div>Technican: <%= @technicans.find { |technican| technican.id == work_order.technician_id }.name %></div>
-    <div>Start Time: <%= work_order.time.getlocal("+08:00").strftime("%I:%M %p") %></div>
+    <div>Start Time: <%= work_order.time.getlocal("-08:00").strftime("%I:%M %p") %></div>
     <div>Price: <%= number_to_currency(work_order.price) %></div>
 </div>

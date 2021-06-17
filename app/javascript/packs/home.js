@@ -38,7 +38,7 @@ function timeBetweenWorkOrders(event){
             nextOrderTime = new Date(nextWorkOrder.children[0].dataset.time * 1000);
         }
         if(previousWorkOrder === null){
-            openModalWithContent("First work order of the day at: " + nextOrderTime.toLocaleTimeString({ timeZone: 'PST', timeZoneName: 'short' }));
+            openModalWithContent("First work order of the day at: " + nextOrderTime.toLocaleTimeString({ timeZone: 'UTC', timeZoneName: 'short' }));
         } else if(nextWorkOrder === null){
             openModalWithContent("No further work orders for today");
         } else {
