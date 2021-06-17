@@ -20,7 +20,7 @@
             <%= technican.name %>
         </div>
         <% for i in 0..23 %>
-            <% time_block = Time.new(2019,1,10,i,0,0).getlocal("-08:00") %>
+            <% time_block = Time.new(2019,1,10,i,0,0) %>
                 <div class="grid-item">
                 <% work_order =  @workOrders.select { |k, v| k.technician_id == technican.id}
                  .find{ |order| order.time.getlocal("-08:00") >= time_block && order.time.getlocal("-08:00") < (time_block + 60.minutes)} %>
