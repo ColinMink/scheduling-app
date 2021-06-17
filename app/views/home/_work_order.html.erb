@@ -1,4 +1,4 @@
-<div class="work-order" data-duration=<%= work_order.duration %> data-time=<%= work_order.time.to_time.to_i %>>
+<div class="work-order" data-duration=<%= work_order.duration %> data-time=<%= work_order.time.to_time.getlocal("-08:00").to_i %>>
     <div>Location: <%= @locations.find { |location| location.id == work_order.location_id }.name %></div>
     <div>City: <%= @locations.find { |location| location.id == work_order.location_id }.city %></div>
     <div>Technican: <%= @technicans.find { |technican| technican.id == work_order.technician_id }.name %></div>
