@@ -25,7 +25,7 @@ COMMAND: rake db:migrate
 
 COMMAND:rake db:load_csv 'DIRECTORY_PATH'
 
-DIRECTORY_PATH is the location of the directory containing the csv files. They are required to be named locations.csv, technicans,csv and work_orders.csv
+DIRECTORY_PATH is the location of the directory containing the csv files. They are required to be named locations.csv, technicans.csv and work_orders.csv
 
 - [ ] Start the server
 
