@@ -15,26 +15,25 @@ note: This setup assumes you have the prerequisites installed for your specific 
 
 - [ ] Download the project directory with any method, git clone is a good solution for this. Make sure to move to the directory after it is created.
 
-git clone https://github.com/ColinMink/scheduling-app
+COMMAND: git clone https://github.com/ColinMink/scheduling-app
+COMMAND: cd scheduling-app
 - [ ] Run the database migrate to build the sqlite3 database
 
-rake db:migrate
+COMMAND: rake db:migrate
 
 - [ ] Import the CSV data into the database
 
-rake db:load_csv DIRECTORY_PATH
+COMMAND:rake db:load_csv 'DIRECTORY_PATH'
 
 DIRECTORY_PATH is the location of the directory containing the csv files. They are required to be named locations.csv, technicans,csv and work_orders.csv
 
 - [ ] Start the server
 
-rails s
+COMMAND:rails s
 
-The website will be avaiable at http://127.0.0.1:3000/ by default. The application is on the root page.
+The website will be avaiable at http://127.0.0.1:3000/ by default. The application is on the root page.if the webserver has a webpack error, update webpack with the command below and type y each time you are prompted and then wait for the install to complete. After this is done, you can restart the rails server.
 
-If the webserver has a webpack error, update webpack with the command below and type y when prompted.
-
-- [ ] rails webpacker:install
+COMMAND: rails webpacker:install
 
 # Approach
 
