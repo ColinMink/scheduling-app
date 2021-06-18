@@ -11,10 +11,9 @@ Tested with the following versions
 
 # Setup
 
-- [ ] Download the project directory with any method, git clone is a good solution for this.
+- [ ] Download the project directory with any method, git clone is a good solution for this. Make sure to move to the directory after it is created.
 
-git clone https://github.com/ColinMink/scheduling-app.git
-
+git clone https://github.com/ColinMink/scheduling-app
 - [ ] Run the database migrate to build the sqlite3 database
 
 rake db:migrate

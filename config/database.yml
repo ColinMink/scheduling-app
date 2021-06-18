@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
@@ -16,6 +16,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter: postgresql
   database: db/test
   database: scheduling-app_development
   username: scheduling-app
@@ -23,6 +24,7 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: db/production
   database: scheduling-app_development
   username: scheduling-app
