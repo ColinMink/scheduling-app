@@ -11,6 +11,8 @@ Tested with the following versions
 
 # Setup
 
+note: This setup assumes you have the prerequisites installed for your specific operating system.
+
 - [ ] Download the project directory with any method, git clone is a good solution for this. Make sure to move to the directory after it is created.
 
 git clone https://github.com/ColinMink/scheduling-app
@@ -29,6 +31,10 @@ DIRECTORY_PATH is the location of the directory containing the csv files. They a
 rails s
 
 The website will be avaiable at http://127.0.0.1:3000/ by default. The application is on the root page.
+
+If the webserver has a webpack error, update webpack with the command below and type y when prompted.
+
+- [ ] rails webpacker:install
 
 # Approach
 
